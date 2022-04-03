@@ -11,17 +11,14 @@ namespace ABC234.Test
 {
     public class ABC234ATest
     {
-        // [SetUp]
-        // public void Setup()
-        // {
-        // }
 
         [Test]
         public void Test1()
         {
-            var input = ReadToEnd(@"C:\Users\hirok\Documents\Code\2022\atcoder\AtCoderTemplateSample\AtCoderTemplateSample\ABC234\ABC234.Test\Cases\ABC234A_1\input.txt");
-            var expected = ReadToEnd(@"C:\Users\hirok\Documents\Code\2022\atcoder\AtCoderTemplateSample\AtCoderTemplateSample\ABC234\ABC234.Test\Cases\ABC234A_1\expected.txt");
-            
+            // refs https://blog.yucchiy.com/2020/11/csharp-embedded-resources/
+            var input = File.ReadAllText(@"Cases\ABC234A_1\input.txt");
+            var expected = File.ReadAllText(@"Cases\ABC234A_1\expected.txt");
+
             var inStream = new MemoryStream();
             var outBuilder = new StringBuilder();
             var errorBuilder = new StringBuilder();
@@ -34,6 +31,7 @@ namespace ABC234.Test
             inStream.Position = 0;
             SetStreamToReader(inStream);
         
+            // execute Main program.
             RunProgram();
 
             var res = outBuilder.ToString();
@@ -70,14 +68,5 @@ namespace ABC234.Test
             var streamField = reader.GetField("Stream", BindingFlags.NonPublic | BindingFlags.Static);
             streamField.SetValue(null, stream);
         }
-
-        private static string ReadToEnd(string path)
-        {
-            using (StreamReader reader = new StreamReader(path))
-            {
-                return reader.ReadToEnd();
-            }
-        }
-        
     }
 }

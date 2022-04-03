@@ -16,9 +16,16 @@ namespace ABC234A
     {
         public static void Main()
         {
-            var readLine = Console.ReadLine();
+            var t = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(readLine);
+            static int func(int x)
+            {
+                return x * x + 2 * x + 3;
+            }
+
+            var ans = func(func(func(t) + t) + func(func(t)));
+
+            Console.WriteLine(ans);
         }
     }
 }

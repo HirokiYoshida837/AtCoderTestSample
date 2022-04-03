@@ -16,4 +16,15 @@
       <ProjectReference Include="..\ABC234A\ABC234A.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Cases\ABC234A_1\expected.txt" />
+      <EmbeddedResource Include="Cases\ABC234A_1\expected.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Cases\ABC234A_1\input.txt" />
+      <EmbeddedResource Include="Cases\ABC234A_1\input.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
 </Project>
