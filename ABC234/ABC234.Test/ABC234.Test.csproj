@@ -17,6 +17,18 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="Cases\ABC234A_2\expected.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Cases\ABC234A_2\input.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Cases\ABC234A_3\expected.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <EmbeddedResource Include="Cases\ABC234A_3\input.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
       <None Remove="Cases\ABC234A_1\expected.txt" />
       <EmbeddedResource Include="Cases\ABC234A_1\expected.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>

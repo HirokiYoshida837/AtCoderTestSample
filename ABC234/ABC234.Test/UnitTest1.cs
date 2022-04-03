@@ -11,13 +11,15 @@ namespace ABC234.Test
 {
     public class ABC234ATest
     {
-
         [Test]
-        public void Test1()
+        [TestCase("ABC234A_1")]
+        [TestCase("ABC234A_2")]
+        [TestCase("ABC234A_3")]
+        public void Test1(string path)
         {
             // refs https://blog.yucchiy.com/2020/11/csharp-embedded-resources/
-            var input = File.ReadAllText(@"Cases\ABC234A_1\input.txt");
-            var expected = File.ReadAllText(@"Cases\ABC234A_1\expected.txt");
+            var input = File.ReadAllText($@"Cases\{path}\input.txt");
+            var expected = File.ReadAllText($@"Cases\{path}\expected.txt");
 
             var inStream = new MemoryStream();
             var outBuilder = new StringBuilder();
@@ -30,7 +32,7 @@ namespace ABC234.Test
             inStream.Write(bytes, 0, bytes.Length);
             inStream.Position = 0;
             SetStreamToReader(inStream);
-        
+
             // execute Main program.
             RunProgram();
 
@@ -45,13 +47,14 @@ namespace ABC234.Test
             {
                 throw new Exception("error");
             }
-            
         }
-        
+
         private bool Validate(string res, string expected)
         {
-            var sharpedRes = string.Join("\n", res.Trim((char)0x0d, (char)0x0a).Split('\n').Select(x => x.Trim()).Where(x => x.Length != 0));
-            var sharpedExpected = string.Join("\n", expected.Trim((char)0x0d, (char)0x0a).Split('\n').Select(x => x.Trim()).Where(x => x.Length != 0));
+            var sharpedRes = string.Join("\n",
+                res.Trim((char) 0x0d, (char) 0x0a).Split('\n').Select(x => x.Trim()).Where(x => x.Length != 0));
+            var sharpedExpected = string.Join("\n",
+                expected.Trim((char) 0x0d, (char) 0x0a).Split('\n').Select(x => x.Trim()).Where(x => x.Length != 0));
 
             return sharpedRes == sharpedExpected;
         }
@@ -60,7 +63,7 @@ namespace ABC234.Test
         {
             P.Main();
         }
-        
+
         private static void SetStreamToReader(Stream stream)
         {
             var reader = Type.GetType("Reader, C-Sharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
