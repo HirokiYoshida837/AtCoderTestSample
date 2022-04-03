@@ -12,9 +12,9 @@ using static System.Math;
 
 namespace ABC234A
 {
-    public static class P
+    public static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
             var t = int.Parse(Console.ReadLine());
 
